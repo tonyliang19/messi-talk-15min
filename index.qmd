@@ -1,0 +1,223 @@
+---
+talk-title: " MESSI-benchmark"
+talk-subtitle: "MESSI: Multiomics Experiments with SyStematic Interrogation"
+talk-descrip: "A pipeline for benchmarking multi-omics integration methods on classification problems using Nextflow"
+author: "Chunqing Tony Liang"
+other-authors: "Dr. Amrit Singh"
+talk-date: "March 7, 2024"
+format: revealjs
+---
+
+## {#title background-image="assets/website_bkg.png" background-position="top"}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### {{< meta talk-subtitle >}} 
+
+::: {.f2}
+
+{{< meta talk-descrip >}}
+
+:::
+
+<br>
+
+<br>
+
+
+::: {.f3 .bold}
+
+{{< meta author >}} 
+
+Msc student in Bioinformatics
+
+Supervisor: {{< meta other-authors >}}
+
+{{< meta talk-date >}}
+
+:::
+
+<!-- {{< include _titleslide.qmd >}} -->
+
+
+## Multiomics data and analysis
+
+:::: {.columns}
+
+::: {.column width="48%"}
+
+```{r}
+#| label: "fig-multiomics-intro"
+#| fig-align: center
+#| fig-cap-location: margin
+#| fig-cap: "               Overview of multiomics data and integration ^[@shannon2024]"
+knitr::include_graphics("assets/multi-omics-integration.png")
+```
+
+:::
+
+::: {.column width="52%"}
+
+<br>
+
+<br>
+
+::: {.callout-tip}
+
+# Motivation
+
+- Technological advancement and reduced costs --> studies with multiomics data
+
+- Multiomics data --> bulk/single-cell/spatial data
+
+- More generalized --> "multimodal data", other non-omics data
+
+- Types of integrations: by sample (N), by omics (P), or both
+
+:::
+
+:::
+
+::::
+
+
+## Multiomics data integration methods
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r out.width="600px", out.height="480px"}
+#| label: "fig-integration-methods"
+#| fig-align: center
+#| fig-cap-location: bottom
+#| fig-cap: "Overview of multi-omics data integration tools ^[@subramanian2020multi]"
+knitr::include_graphics("assets/methods_avail.jpg")
+```
+
+:::
+<!--- Empty column here --->
+::: {.column width="5%"} 
+<!--- Empty column here --->
+:::
+
+
+::: {.column width="50%"}
+
+<br>
+
+::: {.callout-note .fragment}
+
+# Question arises
+
+- Many integration methods 
+  
+  ---> Which to use, how to choose them?
+
+- Reproducibility crisis 
+  
+  ---> How to reproduce method and get reliable results?
+
+- Existing benchmark studies are not 100% complete or all-encompassing
+
+  ---> Technical difficulty in implementation?
+
+:::
+
+:::
+
+::::
+
+
+## Overview of MESSI
+
+
+```{r out.width="600px", out.height="400px"}
+#| label: "fig-messi-overview"
+#| fig-align: center
+#| fig-cap: "Overview of MESSI workflow"
+knitr::include_graphics("assets/overview.png")
+```
+
+
+:::: {.columns .f3 .fragment}
+
+::: {.column width="48%"}
+
+- Generalizable for more integration methods
+
+- Data transformable for Python or R based methods
+
+- Reproducible workflow, results/findings
+
+:::
+
+<!--- empty width here --->
+
+::: {.column width="12%"}
+
+:::
+
+<!--- empty width here --->
+
+::: {.column width="40%"}
+
+- Multiple data types (bulk, sc, spatial)
+
+- Help to develop new integration method
+
+- Compare large set of independent data at once
+
+:::
+
+::::
+
+
+
+## {#acknowledgements .smaller}
+
+
+
+### Acknowledgements
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+- [Dr. Amrit Singh]{.bold}
+- Dr. Young Woong Kim
+- Dr. Maryam Ahmadzadeh
+- Rishika Daswani
+- Roy He
+- Michael Yoon
+- Jeffrey Tang
+- Akshdeep Sandhu
+- Yovindu Don
+- Raam Sivakumar
+- Prabhleen Sandhu
+- Mingming Zhang
+- Samuel Leung
+
+:::
+::: {.column width="50%"}
+
+```{r}
+knitr::include_graphics("assets/lab_pic.jpg")
+```
+
+:::
+
+::::
+
+
+::: {.footer}
+![](assets/logo.png)
+:::
+

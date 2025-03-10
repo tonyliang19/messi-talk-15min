@@ -1,0 +1,31 @@
+$primary: #26AF64;
+$secondary: #f9c80e;
+$tertiary: #2a76dd;
+$fourth-colour: #311847;
+// $font-family-sans-serif:  "Commissioner", "Source Sans Pro", Helvetica, sans-serif, !default;
+// $presentation-font-size-root: 40px;
+$body-bg: #fefefe;
+$presentation-heading-color: $primary;
+// Chance stuff original 36px
+$presentation-font-size-root: 32px; // Use 40px when width 1600 height 900
+
+$link-color: $primary;
+
+/*-- scss:rules --*/
+
+.primary {color: $primary;}
+.secondary {color: $secondary;}
+.tertiary {color: $tertiary;}
+.fourth-colour {color: $fourth-colour;}
+
+/* Overwrite footer */
+.reveal .footer {
+  position:fixed !important;
+  left:20px !important;
+  bottom:20px !important;
+  z-index:1 !important;
+  right:0 !important;
+  width: 50% !important;
+  margin: 0px 0px 0px auto !important;
+
+}
