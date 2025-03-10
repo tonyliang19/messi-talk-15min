@@ -1,5 +1,5 @@
 bibliography: assets/bib/ref.bib
-suppress-bibliography: true
+suppress-bibliography: false
 format: 
   revealjs:
     theme: [default, custom_theme.scss]

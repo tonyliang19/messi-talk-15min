@@ -29,7 +29,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="tachyons-minimal.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -338,9 +358,9 @@
 <p><br></p>
 <div class="f3 bold">
 <p>Chunqing Tony Liang</p>
-<p>Msc student in Bioinformatics</p>
+<p>PhD student in Bioinformatics</p>
 <p>Supervisor: Dr.&nbsp;Amrit Singh</p>
-<p>March 7, 2024</p>
+<p>March 15, 2024</p>
 </div>
 <!--  -->
 </section>
@@ -350,7 +370,7 @@
 <div class="column" style="width:48%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" data-fig-align="center" width="542" data-cap-location="margin">
+<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" data-cap-location="margin" data-fig-align="center" width="542">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-multiomics-intro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/multi-omics-integration.png" class="quarto-figure quarto-figure-center" width="542">
@@ -385,14 +405,14 @@ Figure&nbsp;1: Overview of multiomics data and integration <sup>1</sup>
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="shannon2024">Shannon et al., <em>Manuscript Under Revision</em>, 2024.</span></p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="shannon2024commentary">Casey P Shannon et al., <span>“A Commentary on Multi-Omics Data Integration in Systems Vaccinology,”</span> <em>Journal of Molecular Biology</em> 436, no. 8 (2024): 168522.</span></p></li></ol></aside></section>
 <section id="multiomics-data-integration-methods" class="slide level2">
 <h2>Multiomics data integration methods</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" data-fig-align="center" height="480px" width="600px" data-cap-location="bottom">
+<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" data-cap-location="bottom" data-fig-align="center" height="480px" width="600px">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-integration-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/methods_avail.jpg" class="quarto-figure quarto-figure-center" width="600" height="480">
@@ -435,15 +455,27 @@ Figure&nbsp;2: Overview of multi-omics data integration tools <sup>1</sup>
 <aside><ol class="aside-footnotes"><li id="fn2"><p><span class="citation" data-cites="subramanian2020multi">Indhupriya Subramanian et al., <span>“Multi-Omics Data Integration, Interpretation, and Its Application,”</span> <em>Bioinformatics and Biology Insights</em> 14 (2020): 1177932219899051.</span></p></li></ol></aside></section>
 <section id="new-overview-of-messi" class="slide level2">
 <h2>New overview of MESSI</h2>
-
-<img data-src="assets/messi_workflow.png" class="quarto-figure quarto-figure-center r-stretch" width="853"><p class="caption">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-messi-overview-new" class="quarto-figure quarto-figure-center" width="853" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-messi-overview-new-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="assets/messi_workflow.png" class="quarto-figure quarto-figure-center" width="853">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-messi-overview-new-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Overview of MESSI workflow
-</p></section>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This is done in Nextflow,<span class="citation" data-cites="di2017nextflow"><sup>1</sup></span> and will be publicly available in nf-core.<span class="citation" data-cites="ewels2020nf"><sup>2</sup></span></p>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Paolo Di Tommaso et al., <span>“Nextflow Enables Reproducible Computational Workflows,”</span> <em>Nature Biotechnology</em> 35, no. 4 (2017): 316–19.</p></li><li id="fn4"><p><strong>ewels2020nf?</strong></p></li></ol></aside></section>
 <section id="old-overview-of-messi" class="slide level2">
 <h2>Old Overview of MESSI</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-messi-overview" class="quarto-figure quarto-figure-center" data-fig-align="center" height="400px" width="600px">
+<div id="fig-messi-overview" class="quarto-figure quarto-figure-center" width="600px" height="400px" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-messi-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/overview.png" class="quarto-figure quarto-figure-center" width="600" height="400">
@@ -473,6 +505,14 @@ Figure&nbsp;4: Overview of MESSI workflow
 </div>
 </div>
 </section>
+<section id="benchmark-analysis" class="slide level2">
+<h2>Benchmark analysis</h2>
+<ul>
+<li>Peformed on 4 R based methods and 1 Python based</li>
+<li>R based ones are usually not from deep learning</li>
+<li>Looking into multiview,<span class="citation" data-cites="ding2022cooperative"><sup>1</sup></span> DIABLO,<span class="citation" data-cites="singh2019diablo"><sup>2</sup></span> RGCCA,<span class="citation" data-cites="girka2023multiblock"><sup>3</sup></span> MOFA,<span class="citation" data-cites="tewari2017mofa"><sup>4</sup></span> MOGONET<span class="citation" data-cites="wang2021mogonet"><sup>5</sup></span></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Daisy Yi Ding et al., <span>“Cooperative Learning for Multiview Analysis,”</span> <em>Proceedings of the National Academy of Sciences</em> 119, no. 38 (2022): e2202113119.</p></li><li id="fn6"><p>Amrit Singh et al., <span>“DIABLO: An Integrative Approach for Identifying Key Molecular Drivers from Multi-Omics Assays,”</span> <em>Bioinformatics</em> 35, no. 17 (2019): 3055–62.</p></li><li id="fn7"><p>Fabien Girka et al., <span>“Multiblock Data Analysis with the RGCCA Package,”</span> <em>Journal of Statistical Software</em>, 2023, 1–36.</p></li><li id="fn8"><p>Ayush Tewari et al., <span>“Mofa: Model-Based Deep Convolutional Face Autoencoder for Unsupervised Monocular Reconstruction,”</span> in <em>Proceedings of the IEEE International Conference on Computer Vision Workshops</em>, 2017, 1274–83.</p></li><li id="fn9"><p>Tongxin Wang et al., <span>“MOGONET Integrates Multi-Omics Data Using Graph Convolutional Networks Allowing Patient Classification and Biomarker Identification,”</span> <em>Nature Communications</em> 12, no. 1 (2021): 3445.</p></li></ol></aside></section>
 <section id="result-separated" class="slide level2">
 <h2>Result separated</h2>
 <div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
@@ -538,6 +578,35 @@ Figure&nbsp;6: Simulated dataset results
 </div>
 <div class="footer">
 <p><img data-src="assets/logo.png"></p>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-di2017nextflow" class="csl-entry" role="listitem">
+Di Tommaso, Paolo, Maria Chatzou, Evan W Floden, Pablo Prieto Barja, Emilio Palumbo, and Cedric Notredame. <span>“Nextflow Enables Reproducible Computational Workflows.”</span> <em>Nature Biotechnology</em> 35, no. 4 (2017): 316–19.
+</div>
+<div id="ref-ding2022cooperative" class="csl-entry" role="listitem">
+Ding, Daisy Yi, Shuangning Li, Balasubramanian Narasimhan, and Robert Tibshirani. <span>“Cooperative Learning for Multiview Analysis.”</span> <em>Proceedings of the National Academy of Sciences</em> 119, no. 38 (2022): e2202113119.
+</div>
+<div id="ref-girka2023multiblock" class="csl-entry" role="listitem">
+Girka, Fabien, Etienne Camenen, Caroline Peltier, Arnaud Gloaguen, Vincent Guillemot, Laurent Le Brusquet, and Arthur Tenenhaus. <span>“Multiblock Data Analysis with the RGCCA Package.”</span> <em>Journal of Statistical Software</em>, 2023, 1–36.
+</div>
+<div id="ref-shannon2024commentary" class="csl-entry" role="listitem">
+Shannon, Casey P, Amy HY Lee, Scott J Tebbutt, and Amrit Singh. <span>“A Commentary on Multi-Omics Data Integration in Systems Vaccinology.”</span> <em>Journal of Molecular Biology</em> 436, no. 8 (2024): 168522.
+</div>
+<div id="ref-singh2019diablo" class="csl-entry" role="listitem">
+Singh, Amrit, Casey P Shannon, Benoı̂t Gautier, Florian Rohart, Michaël Vacher, Scott J Tebbutt, and Kim-Anh Lê Cao. <span>“DIABLO: An Integrative Approach for Identifying Key Molecular Drivers from Multi-Omics Assays.”</span> <em>Bioinformatics</em> 35, no. 17 (2019): 3055–62.
+</div>
+<div id="ref-subramanian2020multi" class="csl-entry" role="listitem">
+Subramanian, Indhupriya, Srikant Verma, Shiva Kumar, Abhay Jere, and Krishanpal Anamika. <span>“Multi-Omics Data Integration, Interpretation, and Its Application.”</span> <em>Bioinformatics and Biology Insights</em> 14 (2020): 1177932219899051.
+</div>
+<div id="ref-tewari2017mofa" class="csl-entry" role="listitem">
+Tewari, Ayush, Michael Zollhofer, Hyeongwoo Kim, Pablo Garrido, Florian Bernard, Patrick Perez, and Christian Theobalt. <span>“Mofa: Model-Based Deep Convolutional Face Autoencoder for Unsupervised Monocular Reconstruction.”</span> In <em>Proceedings of the IEEE International Conference on Computer Vision Workshops</em>, 1274–83, 2017.
+</div>
+<div id="ref-wang2021mogonet" class="csl-entry" role="listitem">
+Wang, Tongxin, Wei Shao, Zhi Huang, Haixu Tang, Jie Zhang, Zhengming Ding, and Kun Huang. <span>“MOGONET Integrates Multi-Omics Data Using Graph Convolutional Networks Allowing Patient Classification and Biomarker Identification.”</span> <em>Nature Communications</em> 12, no. 1 (2021): 3445.
+</div>
 </div>
 <div class="footer footer-default">
 

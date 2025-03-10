@@ -4,7 +4,7 @@ talk-subtitle: "MESSI: Multiomics Experiments with SyStematic Interrogation"
 talk-descrip: "A pipeline for benchmarking multi-omics integration methods on classification problems using Nextflow"
 author: "Chunqing Tony Liang"
 other-authors: "Dr. Amrit Singh"
-talk-date: "March 7, 2024"
+talk-date: "March 15, 2024"
 format: revealjs
 ---
 
@@ -35,7 +35,7 @@ format: revealjs
 
 {{< meta author >}} 
 
-Msc student in Bioinformatics
+PhD student in Bioinformatics
 
 Supervisor: {{< meta other-authors >}}
 
@@ -56,7 +56,7 @@ Supervisor: {{< meta other-authors >}}
 #| label: "fig-multiomics-intro"
 #| fig-align: center
 #| fig-cap-location: margin
-#| fig-cap: "               Overview of multiomics data and integration ^[@shannon2024]"
+#| fig-cap: "               Overview of multiomics data and integration ^[@shannon2024commentary]"
 knitr::include_graphics("assets/multi-omics-integration.png")
 ```
 
@@ -144,6 +144,8 @@ knitr::include_graphics("assets/methods_avail.jpg")
 knitr::include_graphics("assets/messi_workflow.png")
 ```
 
+This is done in Nextflow [@di2017nextflow], and will be publicly available in nf-core [@ewels2020nf].
+
 ## Old Overview of MESSI
 
 
@@ -186,6 +188,12 @@ knitr::include_graphics("assets/overview.png")
 :::
 
 ::::
+
+## Benchmark analysis
+
+- Peformed on 4 R based methods and 1 Python based
+- R based ones are usually not from deep learning
+- Looking into multiview [@ding2022cooperative], DIABLO [@singh2019diablo], RGCCA [@girka2023multiblock], MOFA [@tewari2017mofa], MOGONET [@wang2021mogonet] 
 
 
 ## Result separated
@@ -262,3 +270,7 @@ knitr::include_graphics("assets/lab_pic.jpg")
 ![](assets/logo.png)
 :::
 
+## References
+
+::: {#refs}
+:::
