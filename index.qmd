@@ -135,7 +135,16 @@ knitr::include_graphics("assets/methods_avail.jpg")
 ::::
 
 
-## Overview of MESSI
+## New overview of MESSI
+
+```{r}
+#| label: "fig-messi-overview-new"
+#| fig-align: center
+#| fig-cap: "Overview of MESSI workflow"
+knitr::include_graphics("assets/messi_workflow.png")
+```
+
+## Old Overview of MESSI
 
 
 ```{r out.width="600px", out.height="400px"}
@@ -179,6 +188,38 @@ knitr::include_graphics("assets/overview.png")
 ::::
 
 
+## Result separated
+
+```{r}
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Speed and Stopping Distances of Cars"
+#|   - "Vapor Pressure of Mercury as a Function of Temperature"
+
+knitr::include_graphics("assets/computed_results/fig_performance_evaluation_real.png")
+knitr::include_graphics("assets/computed_results/fig_feature_selection_real.png")
+```
+
+## Result 1 Grid
+
+```{r}
+#| label: fig-real-grid
+#| fig-align: center
+#| fig-cap: "Real dataset results"
+
+knitr::include_graphics("assets/computed_results/fig_real_grid.png")
+```
+
+## Result 2 Grid
+
+```{r}
+#| label: fig-sim-grid
+#| fig-align: center
+#| fig-cap: "Simulated dataset results"
+
+knitr::include_graphics("assets/computed_results/fig_sim_grid.png")
+
+```
 
 ## {#acknowledgements .smaller}
 
