@@ -18,14 +18,27 @@ $link-color: $primary;
 .tertiary {color: $tertiary;}
 .fourth-colour {color: $fourth-colour;}
 
-/* Overwrite footer */
-.reveal .footer {
-  position:fixed !important;
-  left:20px !important;
-  bottom:20px !important;
-  z-index:1 !important;
-  right:0 !important;
-  width: 50% !important;
-  margin: 0px 0px 0px auto !important;
+.thanks {
+  h1 {
+    text-align: center !important;
+    font-size: 4em !important;
+  }
+}
 
+
+
+/* Overwrite footer */
+// .reveal .footer {
+//   position:fixed !important;
+//   left:20px !important;
+//   bottom:20px !important;
+//   z-index:1 !important;
+//   right:0 !important;
+//   width: 50% !important;
+//   margin: 0px 0px 0px auto !important;
+
+// }
+/* Make footnote smaller */
+.reveal .slide aside .aside-footnotes {
+  font-size: 14px;
 }

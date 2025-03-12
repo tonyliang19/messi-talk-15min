@@ -8,7 +8,22 @@ talk-date: "March 15, 2024"
 format: revealjs
 ---
 
+
+
 ## {#title background-image="assets/website_bkg.png" background-position="top"}
+
+<!--- setup r lib -->
+```{r}
+#| label: "setup"
+#| echo: false
+#| include: false
+#| eval: true
+
+library(knitr)
+library(cowplot)
+```
+
+
 
 <br>
 <br>
@@ -74,7 +89,7 @@ knitr::include_graphics("assets/multi-omics-integration.png")
 
 - Technological advancement and reduced costs --> studies with multiomics data
 
-- Multiomics data --> bulk/single-cell/spatial data
+- Multiomics data --> /single-cell/spatial data
 
 - More generalized --> "multimodal data", other non-omics data
 
@@ -135,7 +150,11 @@ knitr::include_graphics("assets/methods_avail.jpg")
 ::::
 
 
-## New overview of MESSI
+## The MESSI workflow
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 ```{r}
 #| label: "fig-messi-overview-new"
@@ -144,90 +163,212 @@ knitr::include_graphics("assets/methods_avail.jpg")
 knitr::include_graphics("assets/messi_workflow.png")
 ```
 
-This is done in Nextflow [@di2017nextflow], and will be publicly available in nf-core [@ewels2020nf].
-
-## Old Overview of MESSI
-
-
-```{r out.width="600px", out.height="400px"}
-#| label: "fig-messi-overview"
-#| fig-align: center
-#| fig-cap: "Overview of MESSI workflow"
-knitr::include_graphics("assets/overview.png")
-```
-
-
-:::: {.columns .f3 .fragment}
-
-::: {.column width="48%"}
-
-- Generalizable for more integration methods
-
-- Data transformable for Python or R based methods
-
-- Reproducible workflow, results/findings
-
 :::
 
-<!--- empty width here --->
-
-::: {.column width="12%"}
-
+::: {.column width="6%"}
 :::
 
-<!--- empty width here --->
+::: {.column width="44%"}
 
-::: {.column width="40%"}
+- This is done in **Nextflow** [@di2017nextflow], and will be publicly available in **nf-core** [@ewels2020nf].
 
-- Multiple data types (bulk, sc, spatial)
+- Generalizable for more integration methods, more tasks
 
-- Help to develop new integration method
+- Solves reproducibility issue through independent method containers
 
-- Compare large set of independent data at once
+- Compare large set of data at once
 
 :::
 
 ::::
 
-## Benchmark analysis
 
-- Peformed on 4 R based methods and 1 Python based
-- R based ones are usually not from deep learning
-- Looking into multiview [@ding2022cooperative], DIABLO [@singh2019diablo], RGCCA [@girka2023multiblock], MOFA [@tewari2017mofa], MOGONET [@wang2021mogonet] 
+## Methods
+
+- Looking into multiview [@ding2022cooperative], DIABLO [@singh2019diablo], RGCCA [@girka2023multiblock], MOFA [@argelaguet2018multi], MOGONET (python) [@wang2021mogonet] 
+- Validating with known ground truth data from **500+** simulated multiomics data with varying parameters
+  - Number of subjects/patients
+  - Number of predictors/features/biomarkers
+  - [Correlation]{.tertiary} between omics
+  - "Signal" to distinguish groups (binary response) 
+- Evaluating on **6** real world data
+- Using a **5-fold** cross validation with [AUC]{.secondary} score as metric
+
+::: {.notes}
+
+- R-based one are usually not deep learning based, this is of bad GPU support and focus more on statistics
+
+:::
 
 
-## Result separated
+## Signal and correlation are sensitive parameters to integration methods
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 ```{r}
-#| layout-ncol: 2
-#| fig-cap: 
-#|   - "Speed and Stopping Distances of Cars"
-#|   - "Vapor Pressure of Mercury as a Function of Temperature"
+#| label: "fig-perf-sim"
+#| fig-align: center
+#| fig-cap: "5-fold CV AUC score on simulated data with varying correlation and signal"
+knitr::include_graphics("assets/computed_results/fig_performance_evaluation_sim.png")
+```
 
+:::
+
+::: {.column width="2%"}
+
+:::
+
+::: {.column width="48%"} 
+
+- **Higher signal**, better performance, easier for methods to predict the response
+
+- **Higher correlation**, possibly lower performance, additional test required
+
+- [placeholder]{.primary} is the best, with marginal difference with ...
+
+- [MOGONET]{.secondary} is the worst despite it is deep learning based
+
+- Methods perform quite well when given little signal with AUC score ~ **0.7**
+
+:::
+
+::::
+
+## High variability when identifying the important predictors
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| label: "fig-feat-sim"
+#| fig-align: center
+#| fig-cap: "Feat identification"
+knitr::include_graphics("assets/computed_results/fig_feature_selection_sim.png")
+```
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="48%"}
+
+- [Multiview]{.primary} have consistenly identifying important predictors even when **low** signal or correlation
+- Rest methods seemed to have variety of sensitivity with different parameter settings, unstable
+- [Mogonet]{.secondary} performs worst, have constantly low median of sensitivity capped ~ 0.1
+
+- Placeholder
+
+:::
+
+::::
+
+
+## No universal method that work well on all datasets
+
+:::: {.columns}
+
+::: {.column width="46%"}
+
+```{r}
+#| label: "fig-perf-real"
+#| fig-align: center
+#| fig-cap: "5-fold CV AUC score on real data"
 knitr::include_graphics("assets/computed_results/fig_performance_evaluation_real.png")
+```
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="52%"}
+
+- All methods are unique by their own, and specialized on certain property, no method work well on all data
+- Some methods are similar to each other, i.e. solving similar optimization problem, model setup
+- Similarly, data could have alike distributions
+- There are data that have very **complex** pattern, make method hard to predict
+
+:::
+
+::::
+
+## Ranking of important biomarkers varies by method
+
+
+:::: {.columns}
+
+::: {.column width="44%"}
+
+```{r}
+#| label: "fig-feat-real"
+#| fig-align: center
+#| fig-cap: "Feat identification on real data"
 knitr::include_graphics("assets/computed_results/fig_feature_selection_real.png")
 ```
 
-## Result 1 Grid
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="54%"}
+
+- Methods do not use same metric to quantify whether certain biomarker is important, so ranks on these are different
+- Rare case where methods coincide with their ranking, possible from similar model setup
+- Similar data cluster with each, i.e. GSE71669 with tcga-blca, both look into bladder cancer
+- Placeholder
+
+:::
+
+::::
+
+## Computational time is more sensible to number of predictors rather than subjects
+
+<!-- ```{r}
+#| label: fig-comp-time
+#| fig-cap: "Compuational Time"
+#| fig-subcap: 
+#|   - "Simulated"
+#|   - "Real"
+#| layout-ncol: 2
+
+
+knitr::include_graphics("assets/computed_results/fig_computational_time_sim.png")
+knitr::include_graphics("assets/computed_results/fig_computational_time_real.png")
+``` -->
 
 ```{r}
-#| label: fig-real-grid
-#| fig-align: center
-#| fig-cap: "Real dataset results"
-
-knitr::include_graphics("assets/computed_results/fig_real_grid.png")
-```
-
-## Result 2 Grid
-
-```{r}
-#| label: fig-sim-grid
-#| fig-align: center
-#| fig-cap: "Simulated dataset results"
-
-knitr::include_graphics("assets/computed_results/fig_sim_grid.png")
+#| label: fig-comp-time
+#| fig-cap: "Computational time from preprocessing to evaluation"
+knitr::include_graphics("assets/computed_results/new_comp_time.png")
 
 ```
+
+## Discussion & Future directions {.smaller}
+
+- "No method works universally well on all datasets"
+- Classic statistical methods still work, and even better than DL
+- Pipeline proves way to reproducibliy explore, benchmark different aspects of integration methods
+  - Resumable
+  - Parallel to compute as many as resources allow at the same time
+  - Ease burden of [setting up environment]{.secondary}
+
+- Need to add more methods and datasets
+  - Specially DL models are more popular now
+  - Explore if any dataset could have relation to another despite different disease/condition
+
+::: {.callout-note}
+
+This is ongoing work!
+
+:::
+
+
+# Thanks! {.thanks}
 
 ## {#acknowledgements .smaller}
 

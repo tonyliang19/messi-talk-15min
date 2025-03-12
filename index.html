@@ -349,6 +349,7 @@
 
 <section id="title" class="slide level2" data-background-image="assets/website_bkg.png" data-background-position="top">
 <h2></h2>
+<!--- setup r lib -->
 <p><br> <br> <br> <br> <br> <br></p>
 <h3 id="section">MESSI: Multiomics Experiments with SyStematic Interrogation</h3>
 <div class="f2">
@@ -370,7 +371,7 @@
 <div class="column" style="width:48%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" data-cap-location="margin" data-fig-align="center" width="542">
+<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" width="542" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-multiomics-intro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/multi-omics-integration.png" class="quarto-figure quarto-figure-center" width="542">
@@ -396,7 +397,7 @@ Figure&nbsp;1: Overview of multiomics data and integration <sup>1</sup>
 <div class="callout-content">
 <ul>
 <li><p>Technological advancement and reduced costs –&gt; studies with multiomics data</p></li>
-<li><p>Multiomics data –&gt; bulk/single-cell/spatial data</p></li>
+<li><p>Multiomics data –&gt; /single-cell/spatial data</p></li>
 <li><p>More generalized –&gt; “multimodal data”, other non-omics data</p></li>
 <li><p>Types of integrations: by sample (N), by omics (P), or both</p></li>
 </ul>
@@ -412,7 +413,7 @@ Figure&nbsp;1: Overview of multiomics data and integration <sup>1</sup>
 <div class="column" style="width:45%;">
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" data-cap-location="bottom" data-fig-align="center" height="480px" width="600px">
+<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" width="600px" data-cap-location="bottom" height="480px" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-integration-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/methods_avail.jpg" class="quarto-figure quarto-figure-center" width="600" height="480">
@@ -453,8 +454,10 @@ Figure&nbsp;2: Overview of multi-omics data integration tools <sup>1</sup>
 </div>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn2"><p><span class="citation" data-cites="subramanian2020multi">Indhupriya Subramanian et al., <span>“Multi-Omics Data Integration, Interpretation, and Its Application,”</span> <em>Bioinformatics and Biology Insights</em> 14 (2020): 1177932219899051.</span></p></li></ol></aside></section>
-<section id="new-overview-of-messi" class="slide level2">
-<h2>New overview of MESSI</h2>
+<section id="the-messi-workflow" class="slide level2">
+<h2>The MESSI workflow</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-messi-overview-new" class="quarto-figure quarto-figure-center" width="853" data-fig-align="center">
@@ -469,81 +472,223 @@ Figure&nbsp;3: Overview of MESSI workflow
 </div>
 </div>
 </div>
-<p>This is done in Nextflow,<span class="citation" data-cites="di2017nextflow"><sup>1</sup></span> and will be publicly available in nf-core.<span class="citation" data-cites="ewels2020nf"><sup>2</sup></span></p>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Paolo Di Tommaso et al., <span>“Nextflow Enables Reproducible Computational Workflows,”</span> <em>Nature Biotechnology</em> 35, no. 4 (2017): 316–19.</p></li><li id="fn4"><p><strong>ewels2020nf?</strong></p></li></ol></aside></section>
-<section id="old-overview-of-messi" class="slide level2">
-<h2>Old Overview of MESSI</h2>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:44%;">
+<ul>
+<li><p>This is done in <strong>Nextflow</strong>,<span class="citation" data-cites="di2017nextflow"><sup>1</sup></span> and will be publicly available in <strong>nf-core</strong>.<span class="citation" data-cites="ewels2020nf"><sup>2</sup></span></p></li>
+<li><p>Generalizable for more integration methods, more tasks</p></li>
+<li><p>Solves reproducibility issue through independent method containers</p></li>
+<li><p>Compare large set of data at once</p></li>
+</ul>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Paolo Di Tommaso et al., <span>“Nextflow Enables Reproducible Computational Workflows,”</span> <em>Nature Biotechnology</em> 35, no. 4 (2017): 316–19.</p></li><li id="fn4"><p>Philip A Ewels et al., <span>“The Nf-Core Framework for Community-Curated Bioinformatics Pipelines,”</span> <em>Nature Biotechnology</em> 38, no. 3 (2020): 276–78.</p></li></ol></aside></section>
+<section id="methods" class="slide level2">
+<h2>Methods</h2>
+<ul>
+<li>Looking into multiview,<span class="citation" data-cites="ding2022cooperative"><sup>1</sup></span> DIABLO,<span class="citation" data-cites="singh2019diablo"><sup>2</sup></span> RGCCA,<span class="citation" data-cites="girka2023multiblock"><sup>3</sup></span> MOFA,<span class="citation" data-cites="argelaguet2018multi"><sup>4</sup></span> MOGONET (python)<span class="citation" data-cites="wang2021mogonet"><sup>5</sup></span></li>
+<li>Validating with known ground truth data from <strong>500+</strong> simulated multiomics data with varying parameters
+<ul>
+<li>Number of subjects/patients</li>
+<li>Number of predictors/features/biomarkers</li>
+<li><span class="tertiary">Correlation</span> between omics</li>
+<li>“Signal” to distinguish groups (binary response)</li>
+</ul></li>
+<li>Evaluating on <strong>6</strong> real world data</li>
+<li>Using a <strong>5-fold</strong> cross validation with <span class="secondary">AUC</span> score as metric</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>R-based one are usually not deep learning based, this is of bad GPU support and focus more on statistics</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Daisy Yi Ding et al., <span>“Cooperative Learning for Multiview Analysis,”</span> <em>Proceedings of the National Academy of Sciences</em> 119, no. 38 (2022): e2202113119.</p></li><li id="fn6"><p>Amrit Singh et al., <span>“DIABLO: An Integrative Approach for Identifying Key Molecular Drivers from Multi-Omics Assays,”</span> <em>Bioinformatics</em> 35, no. 17 (2019): 3055–62.</p></li><li id="fn7"><p>Fabien Girka et al., <span>“Multiblock Data Analysis with the RGCCA Package,”</span> <em>Journal of Statistical Software</em>, 2023, 1–36.</p></li><li id="fn8"><p>Ricard Argelaguet et al., <span>“Multi-Omics Factor Analysis—a Framework for Unsupervised Integration of Multi-Omics Data Sets,”</span> <em>Molecular Systems Biology</em> 14, no. 6 (2018): e8124.</p></li><li id="fn9"><p>Tongxin Wang et al., <span>“MOGONET Integrates Multi-Omics Data Using Graph Convolutional Networks Allowing Patient Classification and Biomarker Identification,”</span> <em>Nature Communications</em> 12, no. 1 (2021): 3445.</p></li></ol></aside></section>
+<section id="signal-and-correlation-are-sensitive-parameters-to-integration-methods" class="slide level2">
+<h2>Signal and correlation are sensitive parameters to integration methods</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-messi-overview" class="quarto-figure quarto-figure-center" width="600px" height="400px" data-fig-align="center">
+<div id="fig-perf-sim" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-messi-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="assets/overview.png" class="quarto-figure quarto-figure-center" width="600" height="400">
+<div aria-describedby="fig-perf-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="assets/computed_results/fig_performance_evaluation_sim.png" class="quarto-figure quarto-figure-center" width="4900">
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-messi-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Overview of MESSI workflow
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-perf-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: 5-fold CV AUC score on simulated data with varying correlation and signal
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="columns f3 fragment">
-<div class="column" style="width:48%;">
-<ul>
-<li><p>Generalizable for more integration methods</p></li>
-<li><p>Data transformable for Python or R based methods</p></li>
-<li><p>Reproducible workflow, results/findings</p></li>
-</ul>
-</div><!--- empty width here ---><div class="column" style="width:12%;">
+</div><div class="column" style="width:2%;">
 
-</div><!--- empty width here ---><div class="column" style="width:40%;">
+</div><div class="column" style="width:48%;">
 <ul>
-<li><p>Multiple data types (bulk, sc, spatial)</p></li>
-<li><p>Help to develop new integration method</p></li>
-<li><p>Compare large set of independent data at once</p></li>
+<li><p><strong>Higher signal</strong>, better performance, easier for methods to predict the response</p></li>
+<li><p><strong>Higher correlation</strong>, possibly lower performance, additional test required</p></li>
+<li><p><span class="primary">placeholder</span> is the best, with marginal difference with …</p></li>
+<li><p><span class="secondary">MOGONET</span> is the worst despite it is deep learning based</p></li>
+<li><p>Methods perform quite well when given little signal with AUC score ~ <strong>0.7</strong></p></li>
 </ul>
 </div>
 </div>
 </section>
-<section id="benchmark-analysis" class="slide level2">
-<h2>Benchmark analysis</h2>
-<ul>
-<li>Peformed on 4 R based methods and 1 Python based</li>
-<li>R based ones are usually not from deep learning</li>
-<li>Looking into multiview,<span class="citation" data-cites="ding2022cooperative"><sup>1</sup></span> DIABLO,<span class="citation" data-cites="singh2019diablo"><sup>2</sup></span> RGCCA,<span class="citation" data-cites="girka2023multiblock"><sup>3</sup></span> MOFA,<span class="citation" data-cites="tewari2017mofa"><sup>4</sup></span> MOGONET<span class="citation" data-cites="wang2021mogonet"><sup>5</sup></span></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn5"><p>Daisy Yi Ding et al., <span>“Cooperative Learning for Multiview Analysis,”</span> <em>Proceedings of the National Academy of Sciences</em> 119, no. 38 (2022): e2202113119.</p></li><li id="fn6"><p>Amrit Singh et al., <span>“DIABLO: An Integrative Approach for Identifying Key Molecular Drivers from Multi-Omics Assays,”</span> <em>Bioinformatics</em> 35, no. 17 (2019): 3055–62.</p></li><li id="fn7"><p>Fabien Girka et al., <span>“Multiblock Data Analysis with the RGCCA Package,”</span> <em>Journal of Statistical Software</em>, 2023, 1–36.</p></li><li id="fn8"><p>Ayush Tewari et al., <span>“Mofa: Model-Based Deep Convolutional Face Autoencoder for Unsupervised Monocular Reconstruction,”</span> in <em>Proceedings of the IEEE International Conference on Computer Vision Workshops</em>, 2017, 1274–83.</p></li><li id="fn9"><p>Tongxin Wang et al., <span>“MOGONET Integrates Multi-Omics Data Using Graph Convolutional Networks Allowing Patient Classification and Biomarker Identification,”</span> <em>Nature Communications</em> 12, no. 1 (2021): 3445.</p></li></ol></aside></section>
-<section id="result-separated" class="slide level2">
-<h2>Result separated</h2>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<figure>
-<p><img data-src="assets/computed_results/fig_performance_evaluation_real.png" width="4900"></p>
-<figcaption>Speed and Stopping Distances of Cars</figcaption>
+<section id="high-variability-when-identifying-the-important-predictors" class="slide level2">
+<h2>High variability when identifying the important predictors</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-feat-sim" class="quarto-figure quarto-figure-center" width="7420" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-feat-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="assets/computed_results/fig_feature_selection_sim.png" class="quarto-figure quarto-figure-center" width="7420">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-feat-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Feat identification
+</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<figure>
-<p><img data-src="assets/computed_results/fig_feature_selection_real.png" width="4900"></p>
-<figcaption>Vapor Pressure of Mercury as a Function of Temperature</figcaption>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:48%;">
+<ul>
+<li><p><span class="primary">Multiview</span> have consistenly identifying important predictors even when <strong>low</strong> signal or correlation</p></li>
+<li><p>Rest methods seemed to have variety of sensitivity with different parameter settings, unstable</p></li>
+<li><p><span class="secondary">Mogonet</span> performs worst, have constantly low median of sensitivity capped ~ 0.1</p></li>
+<li><p>Placeholder</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="no-universal-method-that-work-well-on-all-datasets" class="slide level2">
+<h2>No universal method that work well on all datasets</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-perf-real" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-perf-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="assets/computed_results/fig_performance_evaluation_real.png" class="quarto-figure quarto-figure-center" width="4900">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-perf-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: 5-fold CV AUC score on real data
+</figcaption>
 </figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:52%;">
+<ul>
+<li>All methods are unique by their own, and specialized on certain property, no method work well on all data</li>
+<li>Some methods are similar to each other, i.e.&nbsp;solving similar optimization problem, model setup</li>
+<li>Similarly, data could have alike distributions</li>
+<li>There are data that have very <strong>complex</strong> pattern, make method hard to predict</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ranking-of-important-biomarkers-varies-by-method" class="slide level2">
+<h2>Ranking of important biomarkers varies by method</h2>
+<div class="columns">
+<div class="column" style="width:44%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-feat-real" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-feat-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="assets/computed_results/fig_feature_selection_real.png" class="quarto-figure quarto-figure-center" width="4900">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-feat-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Feat identification on real data
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:54%;">
+<ul>
+<li>Methods do not use same metric to quantify whether certain biomarker is important, so ranks on these are different</li>
+<li>Rare case where methods coincide with their ranking, possible from similar model setup</li>
+<li>Similar data cluster with each, i.e.&nbsp;GSE71669 with tcga-blca, both look into bladder cancer</li>
+<li>Placeholder</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="computational-time-is-more-sensible-to-number-of-predictors-rather-than-subjects" class="slide level2">
+<h2>Computational time is more sensible to number of predictors rather than subjects</h2>
+<!-- ```{r}
+#| label: fig-comp-time
+#| fig-cap: "Compuational Time"
+#| fig-subcap: 
+#|   - "Simulated"
+#|   - "Real"
+#| layout-ncol: 2
+
+
+knitr::include_graphics("assets/computed_results/fig_computational_time_sim.png")
+knitr::include_graphics("assets/computed_results/fig_computational_time_real.png")
+``` -->
+
+<img data-src="assets/computed_results/new_comp_time.png" class="quarto-figure quarto-figure-center r-stretch" width="2400"><p class="caption">
+Figure&nbsp;8: Computational time from preprocessing to evaluation
+</p></section>
+<section id="discussion-future-directions" class="slide level2 smaller">
+<h2>Discussion &amp; Future directions</h2>
+<ul>
+<li>“No method works universally well on all datasets”</li>
+<li>Classic statistical methods still work, and even better than DL</li>
+<li>Pipeline proves way to reproducibliy explore, benchmark different aspects of integration methods
+<ul>
+<li>Resumable</li>
+<li>Parallel to compute as many as resources allow at the same time</li>
+<li>Ease burden of <span class="secondary">setting up environment</span></li>
+</ul></li>
+<li>Need to add more methods and datasets
+<ul>
+<li>Specially DL models are more popular now</li>
+<li>Explore if any dataset could have relation to another despite different disease/condition</li>
+</ul></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>This is ongoing work!</p>
 </div>
 </div>
 </div>
 </section>
-<section id="result-1-grid" class="slide level2">
-<h2>Result 1 Grid</h2>
+<section>
+<section id="thanks" class="title-slide slide level1 thanks center">
+<h1>Thanks!</h1>
 
-<img data-src="assets/computed_results/fig_real_grid.png" class="quarto-figure quarto-figure-center r-stretch" width="3600"><p class="caption">
-Figure&nbsp;5: Real dataset results
-</p></section>
-<section id="result-2-grid" class="slide level2">
-<h2>Result 2 Grid</h2>
-
-<img data-src="assets/computed_results/fig_sim_grid.png" class="quarto-figure quarto-figure-center r-stretch" width="4800"><p class="caption">
-Figure&nbsp;6: Simulated dataset results
-</p></section>
+</section>
 <section id="acknowledgements" class="slide level2 smaller">
 <h2></h2>
 <h3 id="acknowledgements-1">Acknowledgements</h3>
@@ -583,11 +728,17 @@ Figure&nbsp;6: Simulated dataset results
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-argelaguet2018multi" class="csl-entry" role="listitem">
+Argelaguet, Ricard, Britta Velten, Damien Arnol, Sascha Dietrich, Thorsten Zenz, John C Marioni, Florian Buettner, Wolfgang Huber, and Oliver Stegle. <span>“Multi-Omics Factor Analysis—a Framework for Unsupervised Integration of Multi-Omics Data Sets.”</span> <em>Molecular Systems Biology</em> 14, no. 6 (2018): e8124.
+</div>
 <div id="ref-di2017nextflow" class="csl-entry" role="listitem">
 Di Tommaso, Paolo, Maria Chatzou, Evan W Floden, Pablo Prieto Barja, Emilio Palumbo, and Cedric Notredame. <span>“Nextflow Enables Reproducible Computational Workflows.”</span> <em>Nature Biotechnology</em> 35, no. 4 (2017): 316–19.
 </div>
 <div id="ref-ding2022cooperative" class="csl-entry" role="listitem">
 Ding, Daisy Yi, Shuangning Li, Balasubramanian Narasimhan, and Robert Tibshirani. <span>“Cooperative Learning for Multiview Analysis.”</span> <em>Proceedings of the National Academy of Sciences</em> 119, no. 38 (2022): e2202113119.
+</div>
+<div id="ref-ewels2020nf" class="csl-entry" role="listitem">
+Ewels, Philip A, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso, and Sven Nahnsen. <span>“The Nf-Core Framework for Community-Curated Bioinformatics Pipelines.”</span> <em>Nature Biotechnology</em> 38, no. 3 (2020): 276–78.
 </div>
 <div id="ref-girka2023multiblock" class="csl-entry" role="listitem">
 Girka, Fabien, Etienne Camenen, Caroline Peltier, Arnaud Gloaguen, Vincent Guillemot, Laurent Le Brusquet, and Arthur Tenenhaus. <span>“Multiblock Data Analysis with the RGCCA Package.”</span> <em>Journal of Statistical Software</em>, 2023, 1–36.
@@ -601,9 +752,6 @@ Singh, Amrit, Casey P Shannon, Benoı̂t Gautier, Florian Rohart, Michaël Vache
 <div id="ref-subramanian2020multi" class="csl-entry" role="listitem">
 Subramanian, Indhupriya, Srikant Verma, Shiva Kumar, Abhay Jere, and Krishanpal Anamika. <span>“Multi-Omics Data Integration, Interpretation, and Its Application.”</span> <em>Bioinformatics and Biology Insights</em> 14 (2020): 1177932219899051.
 </div>
-<div id="ref-tewari2017mofa" class="csl-entry" role="listitem">
-Tewari, Ayush, Michael Zollhofer, Hyeongwoo Kim, Pablo Garrido, Florian Bernard, Patrick Perez, and Christian Theobalt. <span>“Mofa: Model-Based Deep Convolutional Face Autoencoder for Unsupervised Monocular Reconstruction.”</span> In <em>Proceedings of the IEEE International Conference on Computer Vision Workshops</em>, 1274–83, 2017.
-</div>
 <div id="ref-wang2021mogonet" class="csl-entry" role="listitem">
 Wang, Tongxin, Wei Shao, Zhi Huang, Haixu Tang, Jie Zhang, Zhengming Ding, and Kun Huang. <span>“MOGONET Integrates Multi-Omics Data Using Graph Convolutional Networks Allowing Patient Classification and Biomarker Identification.”</span> <em>Nature Communications</em> 12, no. 1 (2021): 3445.
 </div>
@@ -611,7 +759,7 @@ Wang, Tongxin, Wei Shao, Zhi Huang, Haixu Tang, Jie Zhang, Zhengming Ding, and K
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
 
     </div>
   </div>
