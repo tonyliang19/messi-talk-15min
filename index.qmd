@@ -200,6 +200,14 @@ knitr::include_graphics("assets/messi_workflow.png")
 
 :::
 
+## Real data demographics
+
+```{r}
+#| label: fig-real-tbl
+#| fig-cap: "Real world data demographics"
+#knitr::include_graphics("assets/computed_results/new_table.png")
+knitr::include_graphics("assets/computed_results/real_table.png")
+```
 
 ## Signal and correlation are sensitive parameters to integration methods
 
