@@ -135,9 +135,9 @@ knitr::include_graphics("assets/methods_avail.jpg")
   
   ---> Which to use, how to choose them?
 
-- Reproducibility crisis 
+- [Reproducibility crisis]{.secondary}
   
-  ---> How to reproduce method and get reliable results?
+  ---> How to reproduce method and get [reliable]{.tertiary} results?
 
 - Existing benchmark studies are not 100% complete or all-encompassing
 
@@ -241,13 +241,13 @@ knitr::include_graphics("assets/computed_results/fig_performance_evaluation_sim.
 
 - **Higher signal**, better performance, since it is easier for methods to predict the response
 
-- Correlation do not have obvious effect on performance, additional test required
+- Correlation does not have obvious effect on performance, additional test required
 
 - [DIABLO]{.primary} is the best, with marginal difference to mofa + glmnet
 
-- [MOGONET]{.quaternary} is the worst despite it is deep learning based
+- [MOGONET]{.quaternary} is the worst despite being deep learning-based
 
-- Methods perform quite well when given little signal with AUC score ~ **0.7**
+- Methods perform quite well even when given little signal, with AUC score of ~ **0.7**
 
 :::
 
@@ -257,26 +257,32 @@ knitr::include_graphics("assets/computed_results/fig_performance_evaluation_sim.
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="49%"}
 
 ```{r}
 #| label: "fig-feat-sim"
 #| fig-align: center
-#| fig-cap: "Feat identification"
+#| fig-cap: "Sensitivity of methods identifying important predictors"
 knitr::include_graphics("assets/computed_results/fig_feature_selection_sim.png")
 ```
 
 :::
 
-::: {.column width="2%"}
+::: {.column width="1%"}
 :::
 
-::: {.column width="48%"}
+::: {.column width="50%"}
 
-- [Multiview]{.primary} have consistenly identifying important predictors even when **low** signal or correlation
-- Rest methods seemed to have variety of sensitivity with different parameter settings, unstable
-- [MOGONET]{.quaternary} performs worst, have constantly low median of sensitivity capped ~ 0.1
+<br>
 
+<!-- - [Multiview]{.primary} have consistenly identifying important predictors even when **low** signal or correlation
+- Rest methods seemed to have variety of sensitivity with different parameter settings, [unstable]{.tertiary}
+- [MOGONET]{.quaternary} performs worst, have constantly low median of sensitivity capped ~ 0.1 -->
+
+
+- [Multiview]{.primary} has consistently identified important predictors, even when the signal or correlation is **low**.
+- The other methods exhibited varying sensitivity with different parameter settings, making them [unstable]{.tertiary}.
+- [MOGONET]{.quaternary} performed the worst, with low median sensitivity capped at around 0.1.
 
 :::
 
@@ -303,58 +309,64 @@ knitr::include_graphics("assets/computed_results/fig_performance_evaluation_real
 
 ::: {.column width="52%"}
 
-- All methods are unique by their own, and specialized on certain property, no method work well on all data
+
+- All methods are unique in their design --- **"no method work well on all data"**
+- Some data exhibits very [complex]{.secondary} patterns, making them challenging to predict
 - Some methods are similar to each other, i.e. solving similar optimization problem, model setup
-- Similarly, data could have alike distributions
-- There are data that have very **complex** pattern, make method hard to predict
+  - Similarly, data could have alike distributions
+- The pattern [follows]{.tertiary} from previous simulation
 
 :::
 
 ::::
 
-## Ranking of important biomarkers varies by method
+## Ranking of biomarkers varies by method
 
 
 :::: {.columns}
 
-::: {.column width="44%"}
+::: {.column width="46%"}
 
 ```{r}
 #| label: "fig-feat-real"
 #| fig-align: center
-#| fig-cap: "Feat identification on real data"
+#| fig-cap: "Spearman ranking correlation of biomarkers in methods"
 knitr::include_graphics("assets/computed_results/fig_feature_selection_real.png")
 ```
 
 :::
 
-::: {.column width="2%"}
+::: {.column width="1%"}
 :::
 
-::: {.column width="54%"}
+::: {.column width="53%"}
 
-- Methods do not use same metric to quantify whether certain biomarker is important, so ranks on these are different
-- Rare case where methods coincide with their ranking, possible from similar model setup
-- Similar data cluster with each, i.e. GSE71669 with tcga-blca, both look into bladder cancer
+<br>
+
+- Methods do not use same metric to quantify whether certain biomarker is important, so **ranks** on these are usually [different]{.secondary}
+  - Some methods relate due to similar model design like [DIABLO]{.tertiary} and [SGCCA]{.tertiary}
+- Similar data tend to cluster together, i.e. `GSE71669` with `tcga-blca`, both study bladder cancer
 
 :::
 
 ::::
 
+::: {.notes}
+
+- SGCCA coincides with diablo-null, since both use canonical correlation analysis, to maximize correlation /covariance  between linear combination of variables nad projects them in lower dimension
+
+:::
+
+<!--------
+
+UNCOMMENT THIS BELOW for 15 min talk instead
+
+----->
+
+<!----
+
 ## Computational time is more sensible to number of predictors rather than subjects
 
-<!-- ```{r}
-#| label: fig-comp-time
-#| fig-cap: "Compuational Time"
-#| fig-subcap: 
-#|   - "Simulated"
-#|   - "Real"
-#| layout-ncol: 2
-
-
-knitr::include_graphics("assets/computed_results/fig_computational_time_sim.png")
-knitr::include_graphics("assets/computed_results/fig_computational_time_real.png")
-``` -->
 
 ```{r}
 #| label: fig-comp-time
@@ -363,22 +375,26 @@ knitr::include_graphics("assets/computed_results/new_comp_time.png")
 
 ```
 
+---->
+
 ## Discussion & Future directions {.smaller}
 
-- "No method works universally well on all datasets"
-- Classic statistical methods still work, and even better than DL
-- Pipeline proves way to reproducibliy explore, benchmark different aspects of integration methods
+- "**No method works universally well on all datasets**"
+- Classic statistical methods still work, and sometimes even better than deep learning (DL)
+- Pipeline proves way to [reproducibly]{.tertiary} explore, benchmark different aspects of integration methods
   - Resumable
-  - Parallel to compute as many as resources allow at the same time
+  - Parallel to compute as many resources as allowed at the same time
   - Ease burden of [setting up environment]{.secondary}
 
 - Need to add more methods and datasets
-  - Specially DL models are more popular now
+  - Especially DL models are more popular now
   - Explore if any dataset could have relation to another despite different disease/condition
 
-::: {.callout-note}
+::: {.callout-note .fragment .bigger}
 
-This is ongoing work!
+# Collaboration is welcomed!
+
+This is ongoing work, and it would be great to have more community involvement
 
 :::
 

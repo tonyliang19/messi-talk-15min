@@ -370,7 +370,7 @@
 <div class="column" style="width:48%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" data-cap-location="margin" data-fig-align="center" width="542">
+<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" data-fig-align="center" width="542" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-multiomics-intro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/multi-omics-integration.png" class="quarto-figure quarto-figure-center" width="542">
@@ -412,7 +412,7 @@ Figure&nbsp;1: Overview of multiomics data and integration <span class="citation
 <div class="column" style="width:45%;">
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" data-cap-location="bottom" height="480px" data-fig-align="center" width="600px">
+<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" height="480px" data-fig-align="center" width="600px" data-cap-location="bottom">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-integration-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/methods_avail.jpg" class="quarto-figure quarto-figure-center" width="600" height="480">
@@ -441,8 +441,8 @@ Figure&nbsp;2: Types of multiomics integration method <span class="citation" dat
 <ul>
 <li><p>Many integration methods</p>
 <p>—&gt; Which to use, how to choose them?</p></li>
-<li><p>Reproducibility crisis</p>
-<p>—&gt; How to reproduce method and get reliable results?</p></li>
+<li><p><span class="secondary">Reproducibility crisis</span></p>
+<p>—&gt; How to reproduce method and get <span class="tertiary">reliable</span> results?</p></li>
 <li><p>Existing benchmark studies are not 100% complete or all-encompassing</p>
 <p>—&gt; Technical difficulty in implementation?</p></li>
 </ul>
@@ -460,7 +460,7 @@ Figure&nbsp;2: Types of multiomics integration method <span class="citation" dat
 <div class="column" style="width:45%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-messi-overview-new" class="quarto-figure quarto-figure-center" data-fig-align="center" width="853">
+<div id="fig-messi-overview-new" class="quarto-figure quarto-figure-center" width="853" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-messi-overview-new-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/messi_workflow.png" class="quarto-figure quarto-figure-center" width="853">
@@ -522,7 +522,7 @@ Figure&nbsp;4: Real world data demographics
 <div class="column" style="width:48%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-perf-sim" class="quarto-figure quarto-figure-center" data-fig-align="center" width="4900">
+<div id="fig-perf-sim" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-perf-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_performance_evaluation_sim.png" class="quarto-figure quarto-figure-center" width="4900">
@@ -540,10 +540,10 @@ Figure&nbsp;5: 5-fold CV AUC on simulated data with varying correlation and sign
 <p><br></p>
 <ul>
 <li><p><strong>Higher signal</strong>, better performance, since it is easier for methods to predict the response</p></li>
-<li><p>Correlation do not have obvious effect on performance, additional test required</p></li>
+<li><p>Correlation does not have obvious effect on performance, additional test required</p></li>
 <li><p><span class="primary">DIABLO</span> is the best, with marginal difference to mofa + glmnet</p></li>
-<li><p><span class="quaternary">MOGONET</span> is the worst despite it is deep learning based</p></li>
-<li><p>Methods perform quite well when given little signal with AUC score ~ <strong>0.7</strong></p></li>
+<li><p><span class="quaternary">MOGONET</span> is the worst despite being deep learning-based</p></li>
+<li><p>Methods perform quite well even when given little signal, with AUC score of ~ <strong>0.7</strong></p></li>
 </ul>
 </div>
 </div>
@@ -551,28 +551,32 @@ Figure&nbsp;5: 5-fold CV AUC on simulated data with varying correlation and sign
 <section id="high-variability-when-identifying-the-important-predictors" class="slide level2">
 <h2>High variability when identifying the important predictors</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:49%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-feat-sim" class="quarto-figure quarto-figure-center" data-fig-align="center" width="7420">
+<div id="fig-feat-sim" class="quarto-figure quarto-figure-center" width="7420" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-feat-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_feature_selection_sim.png" class="quarto-figure quarto-figure-center" width="7420">
 </div>
 <figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-feat-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Feat identification
+Figure&nbsp;6: Sensitivity of methods identifying important predictors
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:2%;">
+</div><div class="column" style="width:1%;">
 
-</div><div class="column" style="width:48%;">
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<!-- - [Multiview]{.primary} have consistenly identifying important predictors even when **low** signal or correlation
+- Rest methods seemed to have variety of sensitivity with different parameter settings, [unstable]{.tertiary}
+- [MOGONET]{.quaternary} performs worst, have constantly low median of sensitivity capped ~ 0.1 -->
 <ul>
-<li><span class="primary">Multiview</span> have consistenly identifying important predictors even when <strong>low</strong> signal or correlation</li>
-<li>Rest methods seemed to have variety of sensitivity with different parameter settings, unstable</li>
-<li><span class="quaternary">MOGONET</span> performs worst, have constantly low median of sensitivity capped ~ 0.1</li>
+<li><span class="primary">Multiview</span> has consistently identified important predictors, even when the signal or correlation is <strong>low</strong>.</li>
+<li>The other methods exhibited varying sensitivity with different parameter settings, making them <span class="tertiary">unstable</span>.</li>
+<li><span class="quaternary">MOGONET</span> performed the worst, with low median sensitivity capped at around 0.1.</li>
 </ul>
 </div>
 </div>
@@ -583,7 +587,7 @@ Figure&nbsp;6: Feat identification
 <div class="column" style="width:46%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-perf-real" class="quarto-figure quarto-figure-center" data-fig-align="center" width="4900">
+<div id="fig-perf-real" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-perf-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_performance_evaluation_real.png" class="quarto-figure quarto-figure-center" width="4900">
@@ -599,88 +603,112 @@ Figure&nbsp;7: 5-fold CV AUC score on real data
 
 </div><div class="column" style="width:52%;">
 <ul>
-<li>All methods are unique by their own, and specialized on certain property, no method work well on all data</li>
-<li>Some methods are similar to each other, i.e.&nbsp;solving similar optimization problem, model setup</li>
+<li>All methods are unique in their design — <strong>“no method work well on all data”</strong></li>
+<li>Some data exhibits very <span class="secondary">complex</span> patterns, making them challenging to predict</li>
+<li>Some methods are similar to each other, i.e.&nbsp;solving similar optimization problem, model setup
+<ul>
 <li>Similarly, data could have alike distributions</li>
-<li>There are data that have very <strong>complex</strong> pattern, make method hard to predict</li>
+</ul></li>
+<li>The pattern <span class="tertiary">follows</span> from previous simulation</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="ranking-of-important-biomarkers-varies-by-method" class="slide level2">
-<h2>Ranking of important biomarkers varies by method</h2>
+<section id="ranking-of-biomarkers-varies-by-method" class="slide level2">
+<h2>Ranking of biomarkers varies by method</h2>
 <div class="columns">
-<div class="column" style="width:44%;">
+<div class="column" style="width:46%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-feat-real" class="quarto-figure quarto-figure-center" data-fig-align="center" width="4900">
+<div id="fig-feat-real" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-feat-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_feature_selection_real.png" class="quarto-figure quarto-figure-center" width="4900">
 </div>
 <figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-feat-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: Feat identification on real data
+Figure&nbsp;8: Spearman ranking correlation of biomarkers in methods
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:2%;">
+</div><div class="column" style="width:1%;">
 
-</div><div class="column" style="width:54%;">
+</div><div class="column" style="width:53%;">
+<p><br></p>
 <ul>
-<li>Methods do not use same metric to quantify whether certain biomarker is important, so ranks on these are different</li>
-<li>Rare case where methods coincide with their ranking, possible from similar model setup</li>
-<li>Similar data cluster with each, i.e.&nbsp;GSE71669 with tcga-blca, both look into bladder cancer</li>
+<li>Methods do not use same metric to quantify whether certain biomarker is important, so <strong>ranks</strong> on these are usually <span class="secondary">different</span>
+<ul>
+<li>Some methods relate due to similar model design like <span class="tertiary">DIABLO</span> and <span class="tertiary">SGCCA</span></li>
+</ul></li>
+<li>Similar data tend to cluster together, i.e.&nbsp;<code>GSE71669</code> with <code>tcga-blca</code>, both study bladder cancer</li>
 </ul>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>SGCCA coincides with diablo-null, since both use canonical correlation analysis, to maximize correlation /covariance between linear combination of variables nad projects them in lower dimension</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!--------
+
+UNCOMMENT THIS BELOW for 15 min talk instead
+
+----->
+<!----
+
+## Computational time is more sensible to number of predictors rather than subjects
+
+
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![Computational time from preprocessing to evaluation](assets/computed_results/new_comp_time.png){#fig-comp-time fig-align='center' width=2400}
+:::
+:::
+
+
+---->
 </section>
-<section id="computational-time-is-more-sensible-to-number-of-predictors-rather-than-subjects" class="slide level2">
-<h2>Computational time is more sensible to number of predictors rather than subjects</h2>
-<!-- ```{r}
-#| label: fig-comp-time
-#| fig-cap: "Compuational Time"
-#| fig-subcap: 
-#|   - "Simulated"
-#|   - "Real"
-#| layout-ncol: 2
-
-
-knitr::include_graphics("assets/computed_results/fig_computational_time_sim.png")
-knitr::include_graphics("assets/computed_results/fig_computational_time_real.png")
-``` -->
-
-<img data-src="assets/computed_results/new_comp_time.png" class="quarto-figure quarto-figure-center r-stretch" width="2400"><p class="caption">
-Figure&nbsp;9: Computational time from preprocessing to evaluation
-</p></section>
 <section id="discussion-future-directions" class="slide level2 smaller">
 <h2>Discussion &amp; Future directions</h2>
 <ul>
-<li>“No method works universally well on all datasets”</li>
-<li>Classic statistical methods still work, and even better than DL</li>
-<li>Pipeline proves way to reproducibliy explore, benchmark different aspects of integration methods
+<li>“<strong>No method works universally well on all datasets</strong>”</li>
+<li>Classic statistical methods still work, and sometimes even better than deep learning (DL)</li>
+<li>Pipeline proves way to <span class="tertiary">reproducibly</span> explore, benchmark different aspects of integration methods
 <ul>
 <li>Resumable</li>
-<li>Parallel to compute as many as resources allow at the same time</li>
+<li>Parallel to compute as many resources as allowed at the same time</li>
 <li>Ease burden of <span class="secondary">setting up environment</span></li>
 </ul></li>
 <li>Need to add more methods and datasets
 <ul>
-<li>Specially DL models are more popular now</li>
+<li>Especially DL models are more popular now</li>
 <li>Explore if any dataset could have relation to another despite different disease/condition</li>
 </ul></li>
 </ul>
+<div class="fragment bigger">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Note</strong></p>
+<p><strong>Collaboration is welcomed!</strong></p>
 </div>
 <div class="callout-content">
-<p>This is ongoing work!</p>
+<p>This is ongoing work, and it would be great to have more community involvement</p>
+</div>
 </div>
 </div>
 </div>
