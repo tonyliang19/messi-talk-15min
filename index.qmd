@@ -1,10 +1,10 @@
 ---
 talk-title: " MESSI-benchmark"
 talk-subtitle: "MESSI: Multiomics Experiments with SyStematic Interrogation"
-talk-descrip: "A pipeline for benchmarking multi-omics integration methods on classification problems using Nextflow"
-author: "Chunqing Tony Liang"
+talk-descrip: "A Nextflow pipeline for benchmarking multiomics integration methods"
+author: "Chunqing (Tony) Liang"
 other-authors: "Dr. Amrit Singh"
-talk-date: "March 15, 2024"
+talk-date: "March 13, 2024"
 format: revealjs
 ---
 
@@ -101,6 +101,15 @@ knitr::include_graphics("assets/multi-omics-integration.png")
 
 ::::
 
+::: {.notes}
+
+- Recent update in tech --> cheap and easy access of multiomics data
+- Which has different types
+- Moreover, we now consider modalities , not just omics but images, doctor notes, so on
+- Now, how to integrate them, simplest is same N different P, N means subjects P being predictors
+
+:::
+
 
 ## Multiomics data integration methods
 
@@ -149,11 +158,20 @@ knitr::include_graphics("assets/methods_avail.jpg")
 
 ::::
 
+::: {.notes}
+
+- Earlier talk about data, but which way we know could maximize / make use of full potential from data
+- Then, which task are we performing, and how do you know if it is better in your data not just by chance?
+- Fast way to validate them? Hard to reproduce, not really work on custom data
+- Have anyone try setting this validation up? 
+  - Reliable? Covered all? Easy to access? 
+
+:::
+
 
 ## The MESSI workflow
 
-<br>
-
+*Multiomics Experiments with SyStematic Interrogation*, **MESSI**
 
 :::: {.columns}
 
@@ -187,11 +205,32 @@ knitr::include_graphics("assets/messi_workflow.png")
 
 ::::
 
+::: {.notes}
+
+- Workflow is this, gather your data in MAE and MuData, these two are transferrable
+  - Requires a binary response here in the data, and just numeric data
+- Perform classification task here, could simply extend to regression and other
+- Split data prior to perfrom stratified CV
+  - Not all methods have built-in CV
+  - And accounts for imbalanced data
+
+- The data could make multiple copies to feed into many method workflow possible
+  - 1 method is single short pipeline consist of its own prepro, train, and pred
+  - Gather predicted probabilities of P(Y=1), or positive case
+  - Each method has its own container --> independet from every other method
+  - Due to independence, possible to parallel all, at extreme method-data-fold 
+
+- Through this we ensure reproducibility, same environment, same seed of splitting, make sure same data flow
+- Adding or editing or deleting method do not alter rest
+
+
+:::
+
 
 ## Methods
 
 - Looking into multiview [@ding2022cooperative], DIABLO [@singh2019diablo], RGCCA [@girka2023multiblock], MOFA [@argelaguet2018multi], MOGONET [@wang2021mogonet] 
-- Using a **5-fold** cross validation with [AUC]{.secondary} score as metric
+- Using a **5-fold** cross validation (cv) with [AUC]{.secondary} score as metric
 - Validating with known ground truth data from **500+** simulated data with varying parameters
   - "Signal" to distinguish groups (binary response) 
   - [Correlation]{.tertiary} between omics
@@ -210,6 +249,23 @@ knitr::include_graphics("assets/computed_results/real_table.png")
 
 ::: {.notes}
 
+- To verify pipeline, we run on 5 integration methods, high impact journal, see reference
+
+- As mentioned focused on classification task and have pred prob as output from pipeline, so use auc as metric
+  - Set different threshold could yield diff output --> so use auc
+- auc measures model’s ability to assign higher predicted probabilities to the positive class than to the negative class. 
+  - Higher (close to 1) able to tell which is positive / negative
+  - Lower (close to 0) struggles to differentiate
+  - 0.5 model do not learn, random guessing
+
+- Now, we need ground truth, have code to simulate multiomics data
+  - Given choices and number of parameters we have 500+ unique data
+  - most important have a signal to distinguish group (response)
+  - correlation between omics (covariance)
+  - ~~Could improve then~~
+
+- Lastly on some real world data, high dim, study different disesase or condition
+
 - R-based one are usually not deep learning based, this is of bad GPU support and focus more on statistics
 
 :::
@@ -220,7 +276,7 @@ knitr::include_graphics("assets/computed_results/real_table.png")
 
 :::: {.columns}
 
-::: {.column width="48%"}
+::: {.column width="47%"}
 
 ```{r}
 #| label: "fig-perf-sim"
@@ -235,7 +291,7 @@ knitr::include_graphics("assets/computed_results/fig_performance_evaluation_sim.
 
 :::
 
-::: {.column width="50%"} 
+::: {.column width="51%"} 
 
 <br>
 
@@ -252,6 +308,19 @@ knitr::include_graphics("assets/computed_results/fig_performance_evaluation_sim.
 :::
 
 ::::
+
+::: {.notes}
+
+- No signal, hard to tell, all equally fail and end at 0.5
+- Little signal --> quickly to 0.7, to some point it reaches close to 1
+- This obvious, since now we make response i.e. pos and neg to have very distinct values
+- Corr do not have very obvious effect, arguably lower performance
+  - As high corr between omics, redundant info, hence not good?
+- Bit small, but seems diablo full or null design matrix (covariance matrix of omics) do good
+- Some see suffix is because original model do not perform classification, so some tricks
+- MOGONET is bad in almost all, deep learning is not always good
+
+:::
 
 ## High variability when identifying the important predictors
 
@@ -288,6 +357,18 @@ knitr::include_graphics("assets/computed_results/fig_feature_selection_sim.png")
 
 ::::
 
+::: {.notes}
+
+- Guide people, let them laugh a bit wow result not always good looking
+- Since simulated, we know which predictor are useful (biomarker), which are garbage just noise, can model still pick the good ones? at what prop -> sensitivity
+- vice versa, we could extend it to specificity and so on, lot of possibilities
+- if you like to call stable, mogonet consistent bad at 0.1, but pink multiview is doing great at lesat stable
+- diablo best model before still do good jobm but sometimes just fails a identifying biomarkers 
+
+- Discuss later that simulation could be improved or explored more
+
+:::
+
 
 ## No universal method that work well on all datasets
 
@@ -319,6 +400,16 @@ knitr::include_graphics("assets/computed_results/fig_performance_evaluation_real
 :::
 
 ::::
+
+::: {.notes}
+
+- When comes to real, we dont see extreme settings like in simulation
+- Turns out they perform quite good with 0.7 most , this kinda follows like before
+  - Given signal, we have 0.7 as well wow, that why we use simulation first
+- Now, some data is just complex, brca, all do poorly
+- Looking at clusters, methods relate model setup, data relate distribution
+
+:::
 
 ## Ranking of biomarkers varies by method
 
@@ -352,6 +443,14 @@ knitr::include_graphics("assets/computed_results/fig_feature_selection_real.png"
 ::::
 
 ::: {.notes}
+
+- In here, we do not know what are actual useful biomarker, so instead let methods weights all predictors and rank them
+  - important ones should be picked up and rank higher than those useless one
+  - can we see similarity there? --> spearman rank correlation
+
+- Due to diff method nature, we dont expect them to rank same, hope they all retrieve up important ones
+  - if not means method need improvement? we could use pipeline to access multiple method
+  - hence telling if your method need work
 
 - SGCCA coincides with diablo-null, since both use canonical correlation analysis, to maximize correlation /covariance  between linear combination of variables nad projects them in lower dimension
 
@@ -395,6 +494,17 @@ knitr::include_graphics("assets/computed_results/new_comp_time.png")
 # Collaboration is welcomed!
 
 This is ongoing work, and it would be great to have more community involvement
+
+:::
+
+::: {.notes}
+
+- Resumable means internet, resource constrain, runs out of battery, we could recover right away and continue
+
+- Close up on pipeline, quite ongoing work
+- Add more data, for developers to evaluate their method on all these data
+- Add more method, for users to simply validate it on their custom data without need to setup constantly
+- Hopefully benefits community
 
 :::
 

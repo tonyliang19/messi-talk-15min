@@ -10,7 +10,7 @@
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.506">
 
-  <meta name="author" content="Chunqing Tony Liang">
+  <meta name="author" content="Chunqing (Tony) Liang">
   <title>index</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -352,15 +352,15 @@
 <p><br> <br> <br> <br> <br> <br></p>
 <h3 id="section">MESSI: Multiomics Experiments with SyStematic Interrogation</h3>
 <div class="f2">
-<p>A pipeline for benchmarking multi-omics integration methods on classification problems using Nextflow</p>
+<p>A Nextflow pipeline for benchmarking multiomics integration methods</p>
 </div>
 <p><br></p>
 <p><br></p>
 <div class="f3 bold">
-<p>Chunqing Tony Liang</p>
+<p>Chunqing (Tony) Liang</p>
 <p>PhD student in Bioinformatics</p>
 <p>Supervisor: Dr.&nbsp;Amrit Singh</p>
-<p>March 15, 2024</p>
+<p>March 13, 2024</p>
 </div>
 <!--  -->
 </section>
@@ -370,7 +370,7 @@
 <div class="column" style="width:48%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" data-fig-align="center" width="542" data-cap-location="margin">
+<div id="fig-multiomics-intro" class="margin-caption quarto-figure quarto-figure-center" width="542" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-multiomics-intro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/multi-omics-integration.png" class="quarto-figure quarto-figure-center" width="542">
@@ -405,6 +405,24 @@ Figure&nbsp;1: Overview of multiomics data and integration <span class="citation
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Recent update in tech –&gt; cheap and easy access of multiomics data</li>
+<li>Which has different types</li>
+<li>Moreover, we now consider modalities , not just omics but images, doctor notes, so on</li>
+<li>Now, how to integrate them, simplest is same N different P, N means subjects P being predictors</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="multiomics-data-integration-methods" class="slide level2">
 <h2>Multiomics data integration methods</h2>
@@ -412,7 +430,7 @@ Figure&nbsp;1: Overview of multiomics data and integration <span class="citation
 <div class="column" style="width:45%;">
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" height="480px" data-fig-align="center" width="600px" data-cap-location="bottom">
+<div id="fig-integration-methods" class="quarto-figure quarto-figure-center" height="480px" width="600px" data-fig-align="center" data-cap-location="bottom">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-integration-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/methods_avail.jpg" class="quarto-figure quarto-figure-center" width="600" height="480">
@@ -452,15 +470,36 @@ Figure&nbsp;2: Types of multiomics integration method <span class="citation" dat
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Earlier talk about data, but which way we know could maximize / make use of full potential from data</li>
+<li>Then, which task are we performing, and how do you know if it is better in your data not just by chance?</li>
+<li>Fast way to validate them? Hard to reproduce, not really work on custom data</li>
+<li>Have anyone try setting this validation up?
+<ul>
+<li>Reliable? Covered all? Easy to access?</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-messi-workflow" class="slide level2">
 <h2>The MESSI workflow</h2>
-<p><br></p>
+<p><em>Multiomics Experiments with SyStematic Interrogation</em>, <strong>MESSI</strong></p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-messi-overview-new" class="quarto-figure quarto-figure-center" width="853" data-fig-align="center">
+<div id="fig-messi-overview-new" class="quarto-figure quarto-figure-center" data-fig-align="center" width="853">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-messi-overview-new-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/messi_workflow.png" class="quarto-figure quarto-figure-center" width="853">
@@ -484,12 +523,45 @@ Figure&nbsp;3: Overview of MESSI workflow
 </ul>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Workflow is this, gather your data in MAE and MuData, these two are transferrable
+<ul>
+<li>Requires a binary response here in the data, and just numeric data</li>
+</ul></li>
+<li>Perform classification task here, could simply extend to regression and other</li>
+<li>Split data prior to perfrom stratified CV
+<ul>
+<li>Not all methods have built-in CV</li>
+<li>And accounts for imbalanced data</li>
+</ul></li>
+<li>The data could make multiple copies to feed into many method workflow possible
+<ul>
+<li>1 method is single short pipeline consist of its own prepro, train, and pred</li>
+<li>Gather predicted probabilities of P(Y=1), or positive case</li>
+<li>Each method has its own container –&gt; independet from every other method</li>
+<li>Due to independence, possible to parallel all, at extreme method-data-fold</li>
+</ul></li>
+<li>Through this we ensure reproducibility, same environment, same seed of splitting, make sure same data flow</li>
+<li>Adding or editing or deleting method do not alter rest</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="methods" class="slide level2">
 <h2>Methods</h2>
 <ul>
 <li>Looking into multiview <span class="citation" data-cites="ding2022cooperative">(5)</span>, DIABLO <span class="citation" data-cites="singh2019diablo">(6)</span>, RGCCA <span class="citation" data-cites="girka2023multiblock">(7)</span>, MOFA <span class="citation" data-cites="argelaguet2018multi">(8)</span>, MOGONET <span class="citation" data-cites="wang2021mogonet">(9)</span></li>
-<li>Using a <strong>5-fold</strong> cross validation with <span class="secondary">AUC</span> score as metric</li>
+<li>Using a <strong>5-fold</strong> cross validation (cv) with <span class="secondary">AUC</span> score as metric</li>
 <li>Validating with known ground truth data from <strong>500+</strong> simulated data with varying parameters
 <ul>
 <li>“Signal” to distinguish groups (binary response)</li>
@@ -502,7 +574,26 @@ Figure&nbsp;3: Overview of MESSI workflow
 Figure&nbsp;4: Real world data demographics
 </p><aside class="notes">
 <ul>
-<li>R-based one are usually not deep learning based, this is of bad GPU support and focus more on statistics</li>
+<li><p>To verify pipeline, we run on 5 integration methods, high impact journal, see reference</p></li>
+<li><p>As mentioned focused on classification task and have pred prob as output from pipeline, so use auc as metric</p>
+<ul>
+<li>Set different threshold could yield diff output –&gt; so use auc</li>
+</ul></li>
+<li><p>auc measures model’s ability to assign higher predicted probabilities to the positive class than to the negative class.</p>
+<ul>
+<li>Higher (close to 1) able to tell which is positive / negative</li>
+<li>Lower (close to 0) struggles to differentiate</li>
+<li>0.5 model do not learn, random guessing</li>
+</ul></li>
+<li><p>Now, we need ground truth, have code to simulate multiomics data</p>
+<ul>
+<li>Given choices and number of parameters we have 500+ unique data</li>
+<li>most important have a signal to distinguish group (response)</li>
+<li>correlation between omics (covariance)</li>
+<li><del>Could improve then</del></li>
+</ul></li>
+<li><p>Lastly on some real world data, high dim, study different disesase or condition</p></li>
+<li><p>R-based one are usually not deep learning based, this is of bad GPU support and focus more on statistics</p></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -519,10 +610,10 @@ Figure&nbsp;4: Real world data demographics
 <section id="method-are-sensitive-to-the-signal-in-the-data" class="slide level2">
 <h2>Method are sensitive to the signal in the data</h2>
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column" style="width:47%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-perf-sim" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
+<div id="fig-perf-sim" class="quarto-figure quarto-figure-center" data-fig-align="center" width="4900">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-perf-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_performance_evaluation_sim.png" class="quarto-figure quarto-figure-center" width="4900">
@@ -536,7 +627,7 @@ Figure&nbsp;5: 5-fold CV AUC on simulated data with varying correlation and sign
 </div>
 </div><div class="column" style="width:2%;">
 
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:51%;">
 <p><br></p>
 <ul>
 <li><p><strong>Higher signal</strong>, better performance, since it is easier for methods to predict the response</p></li>
@@ -547,6 +638,30 @@ Figure&nbsp;5: 5-fold CV AUC on simulated data with varying correlation and sign
 </ul>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>No signal, hard to tell, all equally fail and end at 0.5</li>
+<li>Little signal –&gt; quickly to 0.7, to some point it reaches close to 1</li>
+<li>This obvious, since now we make response i.e.&nbsp;pos and neg to have very distinct values</li>
+<li>Corr do not have very obvious effect, arguably lower performance
+<ul>
+<li>As high corr between omics, redundant info, hence not good?</li>
+</ul></li>
+<li>Bit small, but seems diablo full or null design matrix (covariance matrix of omics) do good</li>
+<li>Some see suffix is because original model do not perform classification, so some tricks</li>
+<li>MOGONET is bad in almost all, deep learning is not always good</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="high-variability-when-identifying-the-important-predictors" class="slide level2">
 <h2>High variability when identifying the important predictors</h2>
@@ -554,7 +669,7 @@ Figure&nbsp;5: 5-fold CV AUC on simulated data with varying correlation and sign
 <div class="column" style="width:49%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-feat-sim" class="quarto-figure quarto-figure-center" width="7420" data-fig-align="center">
+<div id="fig-feat-sim" class="quarto-figure quarto-figure-center" data-fig-align="center" width="7420">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-feat-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_feature_selection_sim.png" class="quarto-figure quarto-figure-center" width="7420">
@@ -580,6 +695,26 @@ Figure&nbsp;6: Sensitivity of methods identifying important predictors
 </ul>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li><p>Guide people, let them laugh a bit wow result not always good looking</p></li>
+<li><p>Since simulated, we know which predictor are useful (biomarker), which are garbage just noise, can model still pick the good ones? at what prop -&gt; sensitivity</p></li>
+<li><p>vice versa, we could extend it to specificity and so on, lot of possibilities</p></li>
+<li><p>if you like to call stable, mogonet consistent bad at 0.1, but pink multiview is doing great at lesat stable</p></li>
+<li><p>diablo best model before still do good jobm but sometimes just fails a identifying biomarkers</p></li>
+<li><p>Discuss later that simulation could be improved or explored more</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="no-universal-method-that-work-well-on-all-datasets" class="slide level2">
 <h2>No universal method that work well on all datasets</h2>
@@ -587,7 +722,7 @@ Figure&nbsp;6: Sensitivity of methods identifying important predictors
 <div class="column" style="width:46%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-perf-real" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
+<div id="fig-perf-real" class="quarto-figure quarto-figure-center" data-fig-align="center" width="4900">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-perf-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_performance_evaluation_real.png" class="quarto-figure quarto-figure-center" width="4900">
@@ -613,6 +748,27 @@ Figure&nbsp;7: 5-fold CV AUC score on real data
 </ul>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>When comes to real, we dont see extreme settings like in simulation</li>
+<li>Turns out they perform quite good with 0.7 most , this kinda follows like before
+<ul>
+<li>Given signal, we have 0.7 as well wow, that why we use simulation first</li>
+</ul></li>
+<li>Now, some data is just complex, brca, all do poorly</li>
+<li>Looking at clusters, methods relate model setup, data relate distribution</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="ranking-of-biomarkers-varies-by-method" class="slide level2">
 <h2>Ranking of biomarkers varies by method</h2>
@@ -620,7 +776,7 @@ Figure&nbsp;7: 5-fold CV AUC score on real data
 <div class="column" style="width:46%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-feat-real" class="quarto-figure quarto-figure-center" width="4900" data-fig-align="center">
+<div id="fig-feat-real" class="quarto-figure quarto-figure-center" data-fig-align="center" width="4900">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-feat-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="assets/computed_results/fig_feature_selection_real.png" class="quarto-figure quarto-figure-center" width="4900">
@@ -647,6 +803,16 @@ Figure&nbsp;8: Spearman ranking correlation of biomarkers in methods
 </div>
 <aside class="notes">
 <ul>
+<li>In here, we do not know what are actual useful biomarker, so instead let methods weights all predictors and rank them
+<ul>
+<li>important ones should be picked up and rank higher than those useless one</li>
+<li>can we see similarity there? –&gt; spearman rank correlation</li>
+</ul></li>
+<li>Due to diff method nature, we dont expect them to rank same, hope they all retrieve up important ones
+<ul>
+<li>if not means method need improvement? we could use pipeline to access multiple method</li>
+<li>hence telling if your method need work</li>
+</ul></li>
 <li>SGCCA coincides with diablo-null, since both use canonical correlation analysis, to maximize correlation /covariance between linear combination of variables nad projects them in lower dimension</li>
 </ul>
 <style type="text/css">
@@ -712,6 +878,25 @@ UNCOMMENT THIS BELOW for 15 min talk instead
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li><p>Resumable means internet, resource constrain, runs out of battery, we could recover right away and continue</p></li>
+<li><p>Close up on pipeline, quite ongoing work</p></li>
+<li><p>Add more data, for developers to evaluate their method on all these data</p></li>
+<li><p>Add more method, for users to simply validate it on their custom data without need to setup constantly</p></li>
+<li><p>Hopefully benefits community</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section>
 <section id="thanks" class="title-slide slide level1 thanks center">
