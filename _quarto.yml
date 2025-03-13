@@ -22,7 +22,7 @@ format:
     lang: en-CA
     link-citations: false
     #citations-hover: false
-    csl: assets/bib/chicago-fullnote-bibliography.csl
+    csl: assets/bib/vancouver.csl
 execute: 
   echo: false
   warning: false

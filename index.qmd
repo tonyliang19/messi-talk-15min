@@ -71,7 +71,7 @@ Supervisor: {{< meta other-authors >}}
 #| label: "fig-multiomics-intro"
 #| fig-align: center
 #| fig-cap-location: margin
-#| fig-cap: "               Overview of multiomics data and integration ^[@shannon2024commentary]"
+#| fig-cap: "               Overview of multiomics data and integration [@shannon2024commentary]"
 knitr::include_graphics("assets/multi-omics-integration.png")
 ```
 
@@ -112,7 +112,7 @@ knitr::include_graphics("assets/multi-omics-integration.png")
 #| label: "fig-integration-methods"
 #| fig-align: center
 #| fig-cap-location: bottom
-#| fig-cap: "Overview of multi-omics data integration tools ^[@subramanian2020multi]"
+#| fig-cap: "Types of multiomics integration method [@subramanian2020multi]"
 knitr::include_graphics("assets/methods_avail.jpg")
 ```
 
@@ -152,9 +152,12 @@ knitr::include_graphics("assets/methods_avail.jpg")
 
 ## The MESSI workflow
 
+<br>
+
+
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="45%"}
 
 ```{r}
 #| label: "fig-messi-overview-new"
@@ -165,18 +168,20 @@ knitr::include_graphics("assets/messi_workflow.png")
 
 :::
 
-::: {.column width="6%"}
+::: {.column width="2%"}
 :::
 
-::: {.column width="44%"}
+::: {.column width="53%"}
 
-- This is done in **Nextflow** [@di2017nextflow], and will be publicly available in **nf-core** [@ewels2020nf].
-
-- Generalizable for more integration methods, more tasks
-
-- Solves reproducibility issue through independent method containers
+- This is done in [Nextflow]{.primary} [@di2017nextflow], and will be publicly available in **nf-core** [@ewels2020nf].
 
 - Compare large set of data at once
+
+- Solves [reproducibility]{.secondary} issue through independent method containers
+
+- Generalizable for more integration methods, without affecting existing workflows
+
+- Standardized data format transferrable between `MultiAssayExperiment` and `MuData`
 
 :::
 
@@ -185,14 +190,23 @@ knitr::include_graphics("assets/messi_workflow.png")
 
 ## Methods
 
-- Looking into multiview [@ding2022cooperative], DIABLO [@singh2019diablo], RGCCA [@girka2023multiblock], MOFA [@argelaguet2018multi], MOGONET (python) [@wang2021mogonet] 
-- Validating with known ground truth data from **500+** simulated multiomics data with varying parameters
-  - Number of subjects/patients
-  - Number of predictors/features/biomarkers
-  - [Correlation]{.tertiary} between omics
-  - "Signal" to distinguish groups (binary response) 
-- Evaluating on **6** real world data
+- Looking into multiview [@ding2022cooperative], DIABLO [@singh2019diablo], RGCCA [@girka2023multiblock], MOFA [@argelaguet2018multi], MOGONET [@wang2021mogonet] 
 - Using a **5-fold** cross validation with [AUC]{.secondary} score as metric
+- Validating with known ground truth data from **500+** simulated data with varying parameters
+  - "Signal" to distinguish groups (binary response) 
+  - [Correlation]{.tertiary} between omics
+- Evaluating on **6** real world data ([@fig-real-tbl])
+
+
+```{r}
+#| label: "fig-real-tbl"
+#| fig-align: center
+#| fig-cap: "Real world data demographics"
+
+#knitr::include_graphics("assets/computed_results/new_table.png")
+knitr::include_graphics("assets/computed_results/real_table.png")
+```
+
 
 ::: {.notes}
 
@@ -200,25 +214,18 @@ knitr::include_graphics("assets/messi_workflow.png")
 
 :::
 
-## Real data demographics
 
-```{r}
-#| label: fig-real-tbl
-#| fig-cap: "Real world data demographics"
-#knitr::include_graphics("assets/computed_results/new_table.png")
-knitr::include_graphics("assets/computed_results/real_table.png")
-```
 
-## Signal and correlation are sensitive parameters to integration methods
+## Method are sensitive to the signal in the data
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="48%"}
 
 ```{r}
 #| label: "fig-perf-sim"
 #| fig-align: center
-#| fig-cap: "5-fold CV AUC score on simulated data with varying correlation and signal"
+#| fig-cap: "5-fold CV AUC on simulated data with varying correlation and signal"
 knitr::include_graphics("assets/computed_results/fig_performance_evaluation_sim.png")
 ```
 
@@ -228,15 +235,17 @@ knitr::include_graphics("assets/computed_results/fig_performance_evaluation_sim.
 
 :::
 
-::: {.column width="48%"} 
+::: {.column width="50%"} 
 
-- **Higher signal**, better performance, easier for methods to predict the response
+<br>
 
-- **Higher correlation**, possibly lower performance, additional test required
+- **Higher signal**, better performance, since it is easier for methods to predict the response
 
-- [placeholder]{.primary} is the best, with marginal difference with ...
+- Correlation do not have obvious effect on performance, additional test required
 
-- [MOGONET]{.secondary} is the worst despite it is deep learning based
+- [DIABLO]{.primary} is the best, with marginal difference to mofa + glmnet
+
+- [MOGONET]{.quaternary} is the worst despite it is deep learning based
 
 - Methods perform quite well when given little signal with AUC score ~ **0.7**
 
@@ -266,9 +275,8 @@ knitr::include_graphics("assets/computed_results/fig_feature_selection_sim.png")
 
 - [Multiview]{.primary} have consistenly identifying important predictors even when **low** signal or correlation
 - Rest methods seemed to have variety of sensitivity with different parameter settings, unstable
-- [Mogonet]{.secondary} performs worst, have constantly low median of sensitivity capped ~ 0.1
+- [MOGONET]{.tertiary} performs worst, have constantly low median of sensitivity capped ~ 0.1
 
-- Placeholder
 
 :::
 
@@ -328,7 +336,6 @@ knitr::include_graphics("assets/computed_results/fig_feature_selection_real.png"
 - Methods do not use same metric to quantify whether certain biomarker is important, so ranks on these are different
 - Rare case where methods coincide with their ranking, possible from similar model setup
 - Similar data cluster with each, i.e. GSE71669 with tcga-blca, both look into bladder cancer
-- Placeholder
 
 :::
 
