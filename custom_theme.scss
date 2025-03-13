@@ -42,6 +42,14 @@ $link-color: $primary;
   }
 }
 
+.narrow {
+  width: 30% !important;
+}
+
+.bigger {
+  font-size: 1.5em !important; 
+}
+
 
 /* Overwrite footer */
 // .reveal .footer {
