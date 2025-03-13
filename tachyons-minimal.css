@@ -11,6 +11,16 @@ figcaption {
   text-align: center;
 }
 
+p.caption {
+  margin: auto;
+  text-align: center;
+}
+
+.figure-caption {
+  margin: auto;
+  text-align: center;
+}
+
 .v-base     { vertical-align: baseline; }
 .v-mid      { vertical-align: middle; }
 .v-top      { vertical-align: top; }
