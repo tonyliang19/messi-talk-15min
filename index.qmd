@@ -275,7 +275,7 @@ knitr::include_graphics("assets/computed_results/fig_feature_selection_sim.png")
 
 - [Multiview]{.primary} have consistenly identifying important predictors even when **low** signal or correlation
 - Rest methods seemed to have variety of sensitivity with different parameter settings, unstable
-- [MOGONET]{.tertiary} performs worst, have constantly low median of sensitivity capped ~ 0.1
+- [MOGONET]{.quaternary} performs worst, have constantly low median of sensitivity capped ~ 0.1
 
 
 :::
