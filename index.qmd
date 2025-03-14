@@ -4,7 +4,7 @@ talk-subtitle: "MESSI: Multiomics Experiments with SyStematic Interrogation"
 talk-descrip: "A Nextflow pipeline for benchmarking multiomics integration methods"
 author: "Chunqing (Tony) Liang"
 other-authors: "Dr. Amrit Singh"
-talk-date: "March 13, 2024"
+talk-date: "March 20, 2025"
 format: revealjs
 ---
 
@@ -462,19 +462,23 @@ UNCOMMENT THIS BELOW for 15 min talk instead
 
 ----->
 
-<!----
+<!-- <!---- -->
 
-## Computational time is more sensible to number of predictors rather than subjects
+## {#Computational-time .smaller}
+
+### Computational time is stationary regardless of dataset size
 
 
 ```{r}
 #| label: fig-comp-time
-#| fig-cap: "Computational time from preprocessing to evaluation"
+#| fig-cap: "Computational time of methods from preprocessing to evaluation"
+#| out-width: 77%
 knitr::include_graphics("assets/computed_results/new_comp_time.png")
 
 ```
 
----->
+- Computational time is more sensitive to number of predictors (p) rather than observations (n)
+
 
 ## Discussion & Future directions {.smaller}
 
